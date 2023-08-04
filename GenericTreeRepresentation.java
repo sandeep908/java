@@ -97,6 +97,22 @@ class GenericTreeRep {
       }
     }
 
+    static void LevelOrderLineWise2(Node node){
+      Queue<Node> q = new ArrayDeque<>() ;
+      q.add(node) ;
+      // q.add(null) ;
+      while(q.size()>0){
+        int currSize= q.size() ;
+        for(int i=0 ;i<currSize;i++){
+           node = q.remove() ;
+          System.out.print(node.data+" ");
+          for(Node ch:node.child){
+            q.add(ch) ;
+          }
+        }
+       System.out.println();
+      }
+    }
 
 
     
@@ -133,6 +149,7 @@ class GenericTreeRep {
         System.out.println(size(root));
         System.out.println(height(root));
         System.out.println(max(root));
+        LevelOrderLineWise2(node);
     }
 }
 
